@@ -1,80 +1,36 @@
 # Bộ skill lập trình dùng chung
 
-## 1. Cài đặt
+## Cài đặt trên Ubuntu
 
-Trên Ubuntu, cài Git và các agent bạn dùng. Clone repo rồi mở thư mục vừa tải.
+Cần có Git và agent bạn muốn dùng.
+
+**1. Tải repo.** Nếu đã tải repo, mở terminal trong thư mục chứa README này và chuyển sang bước 2.
 
 ```bash
-git clone '<URL_REMOTE>' my-agent
+git clone https://github.com/hieunx1024/template-in-out-agent.git my-agent
 cd my-agent
 ```
 
-Thay `<URL_REMOTE>` bằng URL của repo. Nếu đã có repo trên máy, mở terminal tại thư mục chứa README này.
+**2. Chạy một lệnh cho agent bạn dùng.** Lệnh cài quy tắc chung và ba skill `feat`, `bug`, `refactor`.
 
-## 2. Tích hợp
+| Agent | Lệnh cài |
+| --- | --- |
+| Claude Code | `bash install.sh claude` |
+| Codex CLI hoặc desktop | `bash install.sh codex` |
+| Antigravity IDE | `bash install.sh antigravity` |
+| Cả ba | `bash install.sh all` |
 
-Chạy đoạn dưới từ thư mục gốc của repo. Đoạn lệnh đăng ký ba skill và quy tắc chung ở cấp người dùng. Nếu gặp file hoặc thư mục cấu hình khác nội dung, lệnh báo đường dẫn để bạn kiểm tra trước khi tiếp tục.
+**3. Mở phiên mới** trong repo bạn muốn làm việc rồi thử gọi skill `bug` theo hướng dẫn bên dưới.
 
-```bash
-bash <<'BASH'
-set -eu
+### Nếu đã có cấu hình riêng
 
-source_dir="$(pwd -P)/ai-config"
-test -f "$source_dir/AGENTS.md"
-for skill in feat bug refactor; do
-  test -f "$source_dir/skills/$skill/SKILL.md"
-done
+Script giữ nguyên các mục bị trùng và in đường dẫn của chúng. Các mục còn thiếu vẫn được cài. Với file quy tắc, bạn có thể gộp nội dung từ [AGENTS.md](ai-config/AGENTS.md) vào file đang dùng. Nếu Codex dùng `AGENTS.override.md`, gộp vào file đó. Với skill trùng tên, mở `SKILL.md` ở hai nơi để chọn nội dung cần giữ.
 
-link_config() {
-  local source="$1" target="$2"
-  mkdir -p -- "$(dirname -- "$target")"
-  if [ -e "$target" ] || [ -L "$target" ]; then
-    if [ -L "$target" ] && [ "$(realpath -- "$target")" = "$source" ]; then
-      return 0
-    fi
-    printf 'Cấu hình đã tồn tại: %s\n' "$target" >&2
-    return 1
-  fi
-  ln -sT -- "$source" "$target"
-}
+### Cập nhật
 
-copy_config() {
-  local source="$1" target="$2"
-  mkdir -p -- "$(dirname -- "$target")"
-  if [ -e "$target" ] || [ -L "$target" ]; then
-    if [ -f "$target" ] && cmp -s -- "$source" "$target"; then
-      return 0
-    fi
-    printf 'Cấu hình đã tồn tại: %s\n' "$target" >&2
-    return 1
-  fi
-  cp -- "$source" "$target"
-}
+Chạy `git pull` trong repo này. Claude Code và Codex đọc nội dung mới qua liên kết đến repo, nên hãy giữ thư mục repo ở vị trí đã cài. Antigravity dùng bản sao. Sau khi cập nhật repo, đối chiếu `ai-config/AGENTS.md` với `~/.gemini/GEMINI.md` và các file `SKILL.md` tương ứng trong `~/.gemini/config/skills/` để gộp thay đổi.
 
-claude_dir="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
-codex_dir="${CODEX_HOME:-$HOME/.codex}"
-gemini_dir="$HOME/.gemini"
-
-link_config "$source_dir" "$HOME/.ai-config"
-link_config "$source_dir/AGENTS.md" "$claude_dir/CLAUDE.md"
-link_config "$source_dir/AGENTS.md" "$codex_dir/AGENTS.md"
-copy_config "$source_dir/AGENTS.md" "$gemini_dir/GEMINI.md"
-
-for skill in feat bug refactor; do
-  link_config "$source_dir/skills/$skill" "$claude_dir/skills/$skill"
-  link_config "$source_dir/skills/$skill" "$HOME/.agents/skills/$skill"
-  copy_config "$source_dir/skills/$skill/SKILL.md" "$gemini_dir/config/skills/$skill/SKILL.md"
-done
-BASH
-```
-
-Nếu đã có quy tắc cá nhân, gộp nội dung của [AGENTS.md](ai-config/AGENTS.md) vào file tương ứng rồi bỏ dòng cài file đó khi chạy lại khối Bash. Nếu Codex đang dùng `AGENTS.override.md` ở cấp người dùng, gộp quy tắc vào file đó. Nếu trùng tên skill, đối chiếu hai bản trước khi chọn nội dung dùng. Để cài cho một agent, giữ các hàm và chỉ chạy những dòng đăng ký của agent đó.
-
-Sau khi cập nhật repo bằng `git pull`, Claude Code và Codex đọc bản mới qua symlink. Với Antigravity, đối chiếu rồi chép lại `ai-config/AGENTS.md` vào `~/.gemini/GEMINI.md` và từng `SKILL.md` vào thư mục skill tương ứng. Giữ các chỉnh sửa cá nhân nếu đã gộp cấu hình.
-
-## 3. Sử dụng
-
-Mở repo cần lập trình trong một phiên agent mới.
+## Sử dụng
 
 | Agent | Gọi mẫu sửa lỗi |
 | --- | --- |
