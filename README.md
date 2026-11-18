@@ -39,13 +39,21 @@ Chạy `git pull` trong repo này rồi chạy lại lệnh ở bước 2 để 
 | Codex desktop | Gõ `@`, chọn skill `bug` rồi gửi. |
 | Antigravity IDE | Kiểm tra skill trong **Agent panel → Customizations** rồi gửi `Dùng skill bug và hiện mẫu đầu vào.` |
 
-Đổi `bug` thành `feat` để tạo tính năng hoặc `refactor` để tái cấu trúc. Gọi tên skill để nhận mẫu, rồi điền ở tin nhắn kế tiếp. Nếu đã có đủ thông tin, gửi tên skill kèm yêu cầu trong cùng tin nhắn.
+Đổi `bug` thành tên skill phù hợp. Gọi tên skill để nhận mẫu, rồi điền ở tin nhắn kế tiếp. Nếu đã có ticket hoặc mô tả đủ rõ, gửi yêu cầu cùng lúc khi gọi skill.
 
-Dùng `idea` để trao đổi khi chưa chốt hướng. Bạn chỉ cần gửi một câu như `Dùng idea để tìm cách giảm số thao tác khi tạo đơn hàng`. Khi đã chọn hướng, agent tóm tắt mục tiêu, phạm vi và ví dụ nghiệm thu ngay trong chat. Gửi `Dùng feat triển khai hướng vừa chốt` khi bạn muốn bắt đầu sửa code.
+### Workflow gợi ý
 
-Dùng `review` để rà thay đổi trước khi merge. Ví dụ, gửi `Dùng review rà diff của nhánh hiện tại so với main, tập trung vào lỗi nghiệp vụ và tương thích API`. Agent đọc diff và báo phát hiện để bạn quyết định cách xử lý.
+| Tình huống | Skill nên gọi | Đầu vào hữu ích |
+| --- | --- | --- |
+| Muốn cải thiện một luồng và cần chọn hướng | `idea` → `feat` khi đã chốt | Vấn đề thực tế. Khi chuyển sang `feat`, dùng lại mục tiêu, phạm vi và ví dụ nghiệm thu đã chốt trong chat. |
+| Có ticket tính năng rõ tiêu chí | `feat` | Ticket, tiêu chí nghiệm thu và ràng buộc tương thích nếu có. |
+| Hành vi đang sai | `bug` | Hiện tượng, kết quả mong đợi và bước tái hiện hoặc log nếu có. |
+| Muốn đơn giản hóa code và giữ hành vi | `refactor` | File hoặc module cần đổi và hành vi cần giữ. |
+| Có diff hoặc PR cần rà trước khi merge | `review` | Diff hoặc PR, nhánh gốc nếu cần so sánh và contract cần giữ. Agent báo phát hiện để bạn quyết định cách xử lý. |
 
-Ví dụ trong Claude Code:
+Gọi `review` độc lập cho một PR sẵn có hoặc sau khi chạy `feat`, `bug` hay `refactor`. Ví dụ, gửi `Dùng review rà diff của nhánh hiện tại so với main, tập trung vào tương thích API và ca hồi quy còn thiếu`.
+
+### Ví dụ sửa lỗi trong Claude Code
 
 ```text
 /bug
