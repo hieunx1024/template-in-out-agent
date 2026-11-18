@@ -8,7 +8,7 @@ if [[ $# -gt 1 || ! $agent =~ ^(all|claude|codex|antigravity)$ ]]; then
 fi
 
 source_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/ai-config" && pwd -P)
-skills=(feat bug refactor idea)
+skills=(feat bug refactor idea review)
 required_files=(AGENTS.md)
 for skill in "${skills[@]}"; do
   required_files+=("skills/$skill/SKILL.md")

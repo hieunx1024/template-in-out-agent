@@ -11,7 +11,7 @@ git clone https://github.com/hieunx1024/template-in-out-agent.git my-agent
 cd my-agent
 ```
 
-**2. Chạy một lệnh cho agent bạn dùng.** Lệnh cài quy tắc chung và bốn skill `feat`, `bug`, `refactor`, `idea`.
+**2. Chạy một lệnh cho agent bạn dùng.** Lệnh cài quy tắc chung và năm skill `feat`, `bug`, `refactor`, `idea`, `review`.
 
 | Agent | Lệnh cài |
 | --- | --- |
@@ -42,6 +42,8 @@ Chạy `git pull` trong repo này rồi chạy lại lệnh ở bước 2 để 
 Đổi `bug` thành `feat` để tạo tính năng hoặc `refactor` để tái cấu trúc. Gọi tên skill để nhận mẫu, rồi điền ở tin nhắn kế tiếp. Nếu đã có đủ thông tin, gửi tên skill kèm yêu cầu trong cùng tin nhắn.
 
 Dùng `idea` để trao đổi khi chưa chốt hướng. Bạn chỉ cần gửi một câu như `Dùng idea để tìm cách giảm số thao tác khi tạo đơn hàng`. Khi đã chọn hướng, agent tóm tắt mục tiêu, phạm vi và ví dụ nghiệm thu ngay trong chat. Gửi `Dùng feat triển khai hướng vừa chốt` khi bạn muốn bắt đầu sửa code.
+
+Dùng `review` để rà thay đổi trước khi merge. Ví dụ, gửi `Dùng review rà diff của nhánh hiện tại so với main, tập trung vào lỗi nghiệp vụ và tương thích API`. Agent đọc diff và báo phát hiện để bạn quyết định cách xử lý.
 
 Ví dụ trong Claude Code:
 
