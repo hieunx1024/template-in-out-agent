@@ -8,7 +8,7 @@ if [[ $# -gt 1 || ! $agent =~ ^(all|claude|codex|antigravity)$ ]]; then
 fi
 
 source_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/ai-config" && pwd -P)
-skills=(feat bug refactor)
+skills=(feat bug refactor idea)
 required_files=(AGENTS.md)
 for skill in "${skills[@]}"; do
   required_files+=("skills/$skill/SKILL.md")
@@ -76,4 +76,4 @@ if (( conflicts > 0 )); then
   printf 'Đã cài các mục còn thiếu. Kiểm tra %s mục cấu hình được liệt kê ở trên.\n' "$conflicts" >&2
   exit 1
 fi
-printf 'Đã cài quy tắc chung và các skill feat, bug, refactor.\n'
+printf 'Đã cài quy tắc chung và các skill: %s.\n' "${skills[*]}"

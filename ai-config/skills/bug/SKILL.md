@@ -5,7 +5,7 @@ description: Chẩn đoán và sửa lỗi khi hành vi hiện tại khác hành
 
 ## Đầu vào
 
-Khi chỉ gọi tên skill hoặc yêu cầu xem mẫu, trả nguyên khối dưới đây rồi chờ. Dùng mô tả, ticket hoặc test đã có để bắt đầu chẩn đoán.
+Khi chỉ gọi tên skill hoặc yêu cầu xem mẫu, gửi mẫu dưới đây rồi chờ. Dùng mô tả, ticket hoặc test đã có để chẩn đoán.
 
 ```text
 Hiện tượng — [Kết quả thực tế hoặc lỗi, xảy ra ở đâu]

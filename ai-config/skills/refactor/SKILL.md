@@ -5,7 +5,7 @@ description: Đơn giản hóa cấu trúc mã trong phạm vi xác định và 
 
 ## Đầu vào
 
-Khi chỉ gọi tên skill hoặc yêu cầu xem mẫu, trả nguyên khối dưới đây rồi chờ. Mặc định giữ hành vi quan sát được và contract hiện có.
+Khi chỉ gọi tên skill hoặc yêu cầu xem mẫu, gửi mẫu dưới đây rồi chờ.
 
 ```text
 Phạm vi — [Module, file, hàm hoặc luồng cần đổi]
@@ -15,5 +15,5 @@ Phải giữ — [Nếu có contract, mã lỗi, dữ liệu hoặc tác dụng 
 
 ## Thực hiện
 
-1. Xác định caller và lấy kiểm tra hiện có làm mốc khi phù hợp. Bổ sung kiểm tra nếu contract dễ bị ảnh hưởng và còn thiếu bằng chứng.
+1. Xác định các caller và hành vi hiện tại của từng caller. Dùng kiểm tra sẵn có làm mốc. Bổ sung ca kiểm tra nếu contract dễ bị ảnh hưởng và còn thiếu bằng chứng.
 2. Đổi theo bước nhỏ và kiểm tra lại luồng bị ảnh hưởng. Nếu cần đổi hành vi hoặc contract, xin quyết định trước. Báo phần được đơn giản hóa và hành vi đã kiểm chứng.

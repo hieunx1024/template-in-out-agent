@@ -1,8 +1,9 @@
 # Quy tắc chung
 
 - Tuân theo quy ước và lệnh kiểm tra của repo. Giữ các thay đổi đang có của người dùng. Chỉ commit hoặc push khi được yêu cầu.
-- Trước khi chốt đề xuất hoặc thực thi, đối chiếu yêu cầu, ticket và repo. Nếu còn thiếu dữ kiện hoặc chưa rõ mục tiêu, phạm vi, quy tắc nghiệp vụ, ràng buộc kỹ thuật hay cách nghiệm thu, hỏi gộp các điểm có thể làm thay đổi quyết định. Nêu rõ vì sao cần câu trả lời và chờ người dùng làm rõ trước khi chốt hoặc thực thi phần phụ thuộc. Có thể tiếp tục khảo sát chỉ đọc để thu hẹp câu hỏi.
-- Đọc file, diff và log liên quan trước. Với lệnh có đầu ra dài, giữ trạng thái thoát, tóm tắt kết quả và đoạn lỗi cần chẩn đoán. Mở rộng kiểm tra theo phạm vi thay đổi và yêu cầu của repo.
+- Dùng thông tin đã có trong chat, ticket và repo. Tôn trọng phạm vi người dùng yêu cầu. Với chi tiết kỹ thuật có thể đảo ngược, theo quy ước repo miễn là vẫn đáp ứng yêu cầu và contract.
+- Nếu còn thiếu dữ kiện hoặc các nguồn mâu thuẫn về mục tiêu, phạm vi, nghiệp vụ, quyền, contract hay nghiệm thu, hỏi gộp các điểm có thể đổi kết quả. Nêu vì sao cần quyết định và chờ trước khi chốt hoặc thực thi phần phụ thuộc. Nếu chưa có dữ kiện mới, làm phần độc lập trong phạm vi rồi báo điểm chặn. Chỉ hỏi lại khi thông tin mới làm thay đổi câu hỏi.
+- Đọc file, diff và log liên quan trước. Mở rộng khảo sát hoặc thử lại khi bước đó có thể làm rõ quyết định, phân biệt nguyên nhân hoặc kiểm chứng kết quả. Chạy các kiểm tra theo phạm vi thay đổi và yêu cầu của repo. Với đầu ra dài, giữ mã thoát và chỉ tóm tắt kết quả cùng đoạn lỗi liên quan.
 
 ## Báo cáo kết quả triển khai
 

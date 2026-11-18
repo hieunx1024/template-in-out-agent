@@ -11,7 +11,7 @@ git clone https://github.com/hieunx1024/template-in-out-agent.git my-agent
 cd my-agent
 ```
 
-**2. Chạy một lệnh cho agent bạn dùng.** Lệnh cài quy tắc chung và ba skill `feat`, `bug`, `refactor`.
+**2. Chạy một lệnh cho agent bạn dùng.** Lệnh cài quy tắc chung và bốn skill `feat`, `bug`, `refactor`, `idea`.
 
 | Agent | Lệnh cài |
 | --- | --- |
@@ -28,7 +28,7 @@ Script giữ nguyên các mục bị trùng và in đường dẫn của chúng.
 
 ### Cập nhật
 
-Chạy `git pull` trong repo này. Claude Code và Codex đọc nội dung mới qua liên kết đến repo, nên hãy giữ thư mục repo ở vị trí đã cài. Antigravity dùng bản sao. Sau khi cập nhật repo, đối chiếu `ai-config/AGENTS.md` với `~/.gemini/GEMINI.md` và các file `SKILL.md` tương ứng trong `~/.gemini/config/skills/` để gộp thay đổi.
+Chạy `git pull` trong repo này rồi chạy lại lệnh ở bước 2 để cài các skill mới. Claude Code và Codex đọc nội dung mới qua liên kết đến repo, nên hãy giữ thư mục repo ở vị trí đã cài. Antigravity dùng bản sao. Với các mục trùng được báo khi cài lại, đối chiếu `ai-config/AGENTS.md` với `~/.gemini/GEMINI.md` và các file `SKILL.md` tương ứng trong `~/.gemini/config/skills/` để gộp thay đổi.
 
 ## Sử dụng
 
@@ -40,6 +40,8 @@ Chạy `git pull` trong repo này. Claude Code và Codex đọc nội dung mới
 | Antigravity IDE | Kiểm tra skill trong **Agent panel → Customizations** rồi gửi `Dùng skill bug và hiện mẫu đầu vào.` |
 
 Đổi `bug` thành `feat` để tạo tính năng hoặc `refactor` để tái cấu trúc. Gọi tên skill để nhận mẫu, rồi điền ở tin nhắn kế tiếp. Nếu đã có đủ thông tin, gửi tên skill kèm yêu cầu trong cùng tin nhắn.
+
+Dùng `idea` để trao đổi khi chưa chốt hướng. Bạn chỉ cần gửi một câu như `Dùng idea để tìm cách giảm số thao tác khi tạo đơn hàng`. Khi đã chọn hướng, agent tóm tắt mục tiêu, phạm vi và ví dụ nghiệm thu ngay trong chat. Gửi `Dùng feat triển khai hướng vừa chốt` khi bạn muốn bắt đầu sửa code.
 
 Ví dụ trong Claude Code:
 
